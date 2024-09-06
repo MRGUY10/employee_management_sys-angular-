@@ -1,0 +1,44 @@
+<div class="form-container">
+  <h2 class="form-title">Employee Details</h2>
+  <form (ngSubmit)="onSubmit()" class="employee-form">
+    <!-- Name Input -->
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input id="name" [(ngModel)]="employee.name" name="name" required class="form-control" placeholder="Enter employee name" />
+    </div>
+
+    <!-- Membership Level Dropdown -->
+    <div class="form-group">
+      <label for="membershipLevel">Membership Level:</label>
+      <select id="membershipLevel" [(ngModel)]="employee.membershipLevel" name="membershipLevel" required class="form-control">
+        <option value="Gold">Gold</option>
+        <option value="Silver">Silver</option>
+        <option value="Bronze">Bronze</option>
+      </select>
+    </div>
+
+    <!-- Date Input -->
+    <div class="form-group">
+      <label for="date">Expired Date:</label>
+      <input id="date" [(ngModel)]="employee.date" name="date" type="date" required class="form-control" />
+    </div>
+
+    <!-- Profile Photo Input -->
+    <div class="form-group">
+      <label for="profilePhoto">Profile Photo:</label>
+      <input id="profilePhoto" type="file" (change)="onFileChange($event)" class="form-control-file" />
+      <div *ngIf="employee.profilePhoto" class="img-preview-container">
+        <img [src]="employee.profilePhoto" alt="Profile Image" class="img-preview" />
+      </div>
+    </div>
+
+    <!-- Button Container -->
+    <div class="button-container">
+      <button type="submit" class="btn btn-primary">Save Changes</button>
+      <button type="button" (click)="cancel()" class="btn btn-secondary">Cancel</button>
+    </div>
+
+
+
+  </form>
+</div>

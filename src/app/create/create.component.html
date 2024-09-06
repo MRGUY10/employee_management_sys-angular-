@@ -1,0 +1,51 @@
+<div class="form-container">
+  <form (ngSubmit)="onSubmit()">
+    <!-- Name Input -->
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input id="name" [(ngModel)]="employee.name" name="name" required />
+    </div>
+
+    <!-- Membership Level Dropdown -->
+    <div class="form-group">
+      <label for="membershipLevel">Membership Level:</label>
+      <select id="membershipLevel" [(ngModel)]="employee.membershipLevel" name="membershipLevel" required>
+        <option value="Gold">Gold</option>
+        <option value="Silver">Silver</option>
+        <option value="Bronze">Bronze</option>
+      </select>
+    </div>
+
+    <!-- Date Input -->
+    <div class="form-group">
+      <label for="date">Expired Date:</label>
+      <input id="date" [(ngModel)]="employee.date" name="date" type="date" required />
+    </div>
+
+    <!-- Profile Photo Input -->
+    <div class="form-group">
+      <label for="profilePhoto">Profile Photo:</label>
+      <input id="profilePhoto" type="file" (change)="onFileChange($event)" />
+      <div *ngIf="profileImage">
+        <img [src]="profileImage" alt="Profile Image" class="img-preview" />
+      </div>
+    </div>
+
+    <!-- Button Container -->
+    <div class="button-container">
+      <button type="submit">Save Changes</button>
+      <button type="button" (click)="cancel()">Cancel</button>
+    </div>
+  </form>
+
+  <!-- Preview Card -->
+  <div class="preview-card">
+    <img [src]="profileImage || 'assets/default-profile.jpg'" alt="{{ employee.name }}" class="preview-img" />
+    <div class="preview-body">
+      <h3>{{ employee.name || 'Name' }}</h3>
+      <p>ID: {{ employee.id || 'ID' }}</p>
+      <p>Membership Level: {{ employee.membershipLevel || 'Membership Level' }}</p>
+      <p>Date: {{ employee.date || 'Date' }}</p>
+    </div>
+  </div>
+</div>

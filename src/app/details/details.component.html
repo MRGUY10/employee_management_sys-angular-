@@ -1,0 +1,11 @@
+<div *ngIf="employee" class="employee-details">
+    <h2>{{employee.name}}</h2>
+    <p>ID: {{employee.id}}</p>
+    <p>Membership Level: {{employee.membershipLevel}}</p>
+    <p>Date: {{employee.date | date}}</p>
+    <img [src]="employee.profilePhoto" alt="{{employee.name}}" class="img-fluid">
+    <div>
+        <button (click)="updateEmployee()" class="btn btn-primary">Back</button>
+        <button (click)="deleteEmployee()" class="btn btn-danger">Delete</button>
+    </div>
+</div>

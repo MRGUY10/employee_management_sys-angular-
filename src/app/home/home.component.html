@@ -1,0 +1,40 @@
+<div class="container">
+  <!-- Add button to navigate to Create component -->
+  <div class="button-container">
+    <button (click)="navigateToCreate()">Add Employee</button>
+  </div>
+
+  <!-- Search input field -->
+  <div class="search-container">
+    <input
+      type="text"
+      placeholder="Search employees..."
+      [(ngModel)]="searchQuery"
+      (input)="onSearchChange(searchQuery)"
+    />
+  </div>
+
+  <div class="scroll-buttons">
+    <button class="scroll-button left" (click)="scrollLeft()">&#9664;</button>
+    <div #cardContainer class="card-container">
+      <div *ngFor="let employee of filteredEmployees" class="card">
+        <div class="edit-icon" (click)="editEmployee(employee.id)">
+          <i class="fas fa-edit"></i> <!-- FontAwesome edit icon -->
+        </div>
+        <img [src]="employee.profilePhoto" alt="{{ employee.name }}" class="card-img" />
+        <div class="card-body">
+          <h3>{{ employee.name }}</h3>
+          <p>ID: {{ employee.id }}</p>
+          <p>Membership Level: {{ employee.membershipLevel }}</p>
+          <p>Date: {{ employee.date | date }}</p>
+          <p>Views: {{ employee.clickCount || 0 }}</p>
+          <div class="button-group">
+            <button (click)="viewDetails(employee.id)">View Details</button>
+            <button (click)="deleteEmployee(employee.id)">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="scroll-button right" (click)="scrollRight()">&#9654;</button>
+  </div>
+</div>

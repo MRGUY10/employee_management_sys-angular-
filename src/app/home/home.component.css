@@ -1,0 +1,179 @@
+/* Style for the card container */
+.card-container {
+  display: flex;
+  gap: 1rem; /* Space between cards */
+  overflow-x: auto; /* Allow horizontal scrolling */
+  padding: 1rem; /* Optional padding */
+  scroll-snap-type: x mandatory; /* Enable smooth snapping of cards while scrolling */
+}
+
+/* Styling for each card */
+.card {
+  position: relative; /* Make the card container a positioned element */
+  flex: 0 0 18rem; /* Cards will not shrink and take a fixed width */
+  border: 1px solid #ddd;
+  border-radius: .5rem;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, .2);
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  scroll-snap-align: center; /* Ensures the card aligns at the center when scrolling */
+}
+
+/* Hover effect for card */
+.card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 1.5rem rgba(0, 0, 0, .3);
+}
+
+/* Styling for card image */
+.card-img {
+  width: 100%;
+  height: 200px; /* Fixed height for consistent card size */
+  object-fit: cover;
+}
+
+/* Styling for card body */
+.card-body {
+  padding: 1rem;
+  text-align: center;
+}
+
+.card-body h3 {
+  margin: 0.5rem 0;
+  font-size: 1.25rem;
+  color: #333;
+}
+
+.card-body p {
+  margin: 0.25rem 0;
+  color: #555;
+}
+
+.card-body img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.25rem;
+  margin: 0.5rem 0;
+}
+
+/* Styling for buttons */
+button {
+  margin: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 0.25rem;
+  color: white;
+  background-color: #007bff;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+button:focus {
+  outline: none;
+}
+
+/* Container for Add button */
+.button-container {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* Search input field */
+.search-container {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.search-container input {
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 0.25rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+.search-container input::placeholder {
+  color: #aaa;
+}
+
+/* Scroll buttons */
+.scroll-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.scroll-button {
+  background-color: #007bff;
+  border: none;
+  border-radius: 0.25rem;
+  color: white;
+  cursor: pointer;
+  padding: 0.75rem;
+  font-size: 1.5rem;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.scroll-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.scroll-button:focus {
+  outline: none;
+}
+
+.scroll-button.left {
+  margin-right: 0.5rem;
+}
+
+.scroll-button.right {
+  margin-left: 0.5rem;
+}
+
+/* Red edit icon */
+.edit-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 18px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover effect for the edit icon */
+.edit-icon:hover {
+  background-color: darkred;
+}
+
+/* Optional: Customize scrollbar for horizontal scrolling */
+.card-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.card-container::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 4px;
+}
+
+.card-container::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
